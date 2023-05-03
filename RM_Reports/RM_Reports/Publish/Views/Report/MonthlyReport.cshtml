@@ -1,0 +1,28 @@
+﻿
+@using System.Configuration
+@using System.Web
+@using MvcReportViewer;
+
+@{
+    ViewBag.Title = "MonthlyReport";
+    Layout = null;
+}
+
+@{
+    var parameters = new List<KeyValuePair<string, object>>
+{
+    new KeyValuePair<string, object>("VendorId",ViewBag.vendorId),
+     new KeyValuePair<string, object>("issueMonth",ViewBag.month),
+      new KeyValuePair<string, object>("issueYear",ViewBag.issueYear),
+       new KeyValuePair<string, object>("VehicleType",ViewBag.vehicleType),
+        new KeyValuePair<string, object>("isShowTotal",ViewBag.isShowTotal),
+    };
+
+}
+<div id="divPrint">
+    @Html.MvcReportViewer("/Monthly_Report", new { Height = 600, Width = "100%", style = "border: none" })
+    <div class="span3"></div>
+</div>
+
+
+
